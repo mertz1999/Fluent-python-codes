@@ -13,7 +13,7 @@ def spin(msg: str, done: Event) -> None:
 
 def slow() -> int:
     time.sleep(3)
-    return 
+    return "Sleep completed"
 
 def supervisor() -> int: 
     done = Event() 
