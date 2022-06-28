@@ -1,6 +1,21 @@
 import itertools
 import time
 from threading import Thread, Event
+import math
+
+
+def is_prime(n: int) -> bool:
+    if n < 2:
+        return False
+    if n == 2:
+        return True
+    if n % 2 == 0:
+        return False
+    root = math.isqrt(n)
+    for i in range(3, root + 1, 2):
+        if n % i == 0:
+            return False
+    return True
 
 def spin(msg: str, done: Event) -> None:
     for char in itertools.cycle(r'\|/-'):
@@ -12,7 +27,8 @@ def spin(msg: str, done: Event) -> None:
     print(f'\r{blanks}\r', end='')
 
 def slow() -> int:
-    time.sleep(3)
+    # time.sleep(3)
+    is_prime(5_000_111_000_222_021)
     return "Sleep completed"
 
 def supervisor() -> int: 
